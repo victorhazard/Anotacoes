@@ -1,0 +1,72 @@
+--RDBMS - Relational Database Management System
+--SGBDR - Sistema de Gerenciamento de Banco de Dados Relacional
+
+-- Comando criação de base de dados
+CREATE DATABASE nome_banco_dados;
+
+-- Diga ao SGBD qual banco irá utilizar
+USE nome_banco_dados
+
+-- Criando tabelas
+CREATE TABLE nome_tabela ( -- Parênteses abre al lista de colunas a serem criadas
+	coluna_1 VARCHAR(10), -- a A vírgula separa as colunas a serem criadas
+	coluna_2 VARCHAR(10)
+);
+
+-- Describe a tabela: descreve todos os dados de uma tabela
+DESC nome_tabela;
+
+--Dropando uma tabela
+
+DROP TABLE nome_tabela; --Drop Table apaga sua tabela e os dados inseridos nela
+
+-- Inserindo dados em uma tabela
+
+INSERT INTO nome_tabela (coluna_1, coluna_2, coluna_3, coluna_4)
+VALUES ( 'valor_1', 'valor_2', 'valor_3', 4); 
+-- Valores devem estar na mesma ordem das colunas 
+-- Valores numéricos NÃO ficam entre aspas simples
+
+-- É possível inverter os nomes das colunas, porém os valores devem seguir a mesma ordem
+INSERT INTO nome_tabela (coluna_2, coluna_3, coluna_4, coluna_1)
+VALUES ( 'valor_2', 'valor_3', 4, 'valor_1'); 
+
+-- É possível omitir os nomes da colunas, mas os valores devem estar TODOS ali e na ORDEM EXATA de criação das colunas
+INSERT INTO nome_tabela 
+VALUES ( 'valor_1', 'valor_2', 'valor_3', 4); 
+
+-- Épossível inserir determinadas colunas e omitir outras
+INSERT INTO nome_tabela (coluna_1, coluna_3, coluna_4)
+VALUES ( 'valor_1', 'valor_3', 4); 
+
+--Select para visulizar todos os dados de uma tabela
+SELECT * FROM nome_tabela -- asterisco indica que queremos ver todos os campos
+
+-- Cuidando para que campos não deixem de ser preenchidos
+
+CREATE TABLE meus_contatos (
+  sobrenome varchar (30) NOT NULL,
+  nome varchar (20) NOT NULL
+)
+
+-- Inserido valores defult
+CREATE TABLE meus_contatos (
+  sobrenome varchar (30) NOT NULL,
+  nome varchar (20) DEFAULT 'Teste' NOT NULL -- O comando default define um valor padrão para a coluna, caso nenhuma informações seja inserida.
+  )
+
+-- Para remover a opção default
+ALTER TABLE meus_contatos MODIFY (nome DEFAULT NULL)
+
+-- Select com condição - WHERE
+SELECT * FROM meus_contatos WHERE sobrenome = 'Victor'
+
+--Inserindo palavras com apostrofo
+INSERT INTO meus_contatos (sobrenome)
+VALUES ('Donald''s') 
+
+--Select de palavras com apostrofo
+SELECT * FROM meus_contatos WHERE sobrenome = 'Greg''s'
+
+
+
