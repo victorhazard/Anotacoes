@@ -1,0 +1,22 @@
+Comandos GIT:
+
+# Para transformar o diretório atual em um repositório GIT basta apenas executar o comando:
+# Initialized empty Git repository in (diretório)
+$ git init  -- Foi criado uma pasta oculta .git
+
+# Para avaliar a situação atual do repositório:
+$ git status
+
+# Para rastrear os arquivos do repositório:
+$ git add arquivo 
+-- rastreia o arquivos em questão
+
+## Após rastrear as mudanças é preciso comita-las:
+$ git commit -m 'Texto para o commit' -- A cada nova alteração é necessário rastrear e comitar o arquivo
+
+## Para verificar o histórico das alterações:
+$ git log
+
+
+
+
