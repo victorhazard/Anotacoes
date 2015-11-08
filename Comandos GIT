@@ -7,9 +7,23 @@ $ git init  -- Foi criado uma pasta oculta .git
 # Para avaliar a situação atual do repositório:
 $ git status
 
-# Para rastrear os arquivos do repositório:
-$ git add arquivo 
+# Para rastrear um arquivo do repositório:
+$ git add nome_arquivo 
 -- rastreia o arquivos em questão
+-- O comando add coloca o arquivos em uma área chamada stage. A partir desse momento todas as alterações no arquivo são rastreadas
+-- Cada alteração no arquivo deve ser rastreada com o comando add
+
+# Para rastrear vários arquivos do repositório:
+$ git add .
+-- O ponto (.) indica que todos os arquivos do repositório serão rastreados, inclusive subdiretórios
+
+# Para evitar que arquivos/diretórios sejam rastreados
+-- Para evitar que arquivos ou diretórios sejam rastreados é necessário criar um arquivo chamado .gitignore no diretório principal do repositório
+com o conteúdo que deve ser ignorado pelo rastreamento do git, como por exemplo:
+  Quero barrar os arquivos de extensão .log, devo adicionar o arquivo .gitignore o conteúdo *.log
+  Quero barrar os arquivos de extensão .bmp, devo adicionar o arquivo .gitignore o conteúdo *.bmp
+  Quero barrar os arquivos de extensão .txt do subdiretório imagens, devo adicionar o conteúdo imagens/*.txt
+  Exemplo pode ser encontrados em https://github.com/github/gitignore
 
 ## Após rastrear as mudanças é preciso comita-las:
 $ git commit -m 'Texto para o commit' -- A cada nova alteração é necessário rastrear e comitar o arquivo
