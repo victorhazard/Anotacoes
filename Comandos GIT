@@ -29,11 +29,49 @@ com o conteúdo que deve ser ignorado pelo rastreamento do git, como por exemplo
 ## Após rastrear as mudanças é preciso comita-las:
 $ git commit -m 'Texto para o commit' -- A cada nova alteração é necessário rastrear e comitar o arquivo
 
-## Para rastrear e commitar
+## Para rastrear e commitar as alterações em um único comando (Apenas para arquivos que já foram rastreados antes)
+$ git commit -a -m 'add e commit em um unico comando'
+ou
+$ git commit -am 'add e commit em um unico comando'
+-- Arquivos novos devem ser rastrados ao menos uma vez para que suas mudanças possam ser adicionadas e commitadas em um único comando posteriormente
 
 ## Para verificar o histórico das alterações:
 $ git log
 
+## Para visualizar um determinado número de commits:
+$ git lon -n X
+
+## Para visualizar os detalhes dos commits executados:
+$ git log --oneline
 
 
+## Para visualizar um resumo das alterações:
+$ git log --stat
 
+## Combinando comandos de visualização de log:
+-- É possível combinar vários comando em um único para ter uma melhor visualização dos log
+$ git log -n 2 --oneline --stat
+
+## Verificando as mudanças que ainda não foram rastreadas:
+$ git diff
+-- Este comando vai exibir as diferenças entre o último commit e as alterações que ainda não foram rastreadas
+-- Para verificar as diferenças de um arquivo especifico, é preciso passar o nome do arquivo após o comando diff
+-- Este comando não funciona para arquivos que ainda não foram rastreados ao menos uma vez.
+
+## Verificando as mudanças que foram rastreadas, mas que ainda não foram commitadas:
+$ git diff --staged
+
+## Verificando as mudanças que foram e as que ainda não foram rastreadas:
+$ git diff (código do ultimo commit $ git log -n 1 --oneline)
+
+## Deletando arquivos do repositório:
+$ git rm (nome arquivo)
+-- O comando rm remove o arquivo em questão e também adiciona a deleção na stage do repositório
+-- A deleteção também tem a necessidade de ser commitada no repositório
+
+## Renomeando arquivos:
+$ git mv nome_antigo nome_novo
+
+## Desfazendo mudanças não desejadas
+$ git checkout nome_arquivo
+-- Este comando faz com que as alterações realizadas em determinado arquivo sejam desfeitas (com a condição de que ainda não tenham sido rastreadas)
