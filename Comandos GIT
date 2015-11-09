@@ -24,9 +24,12 @@ com o conteúdo que deve ser ignorado pelo rastreamento do git, como por exemplo
   Quero barrar os arquivos de extensão .bmp, devo adicionar o arquivo .gitignore o conteúdo *.bmp
   Quero barrar os arquivos de extensão .txt do subdiretório imagens, devo adicionar o conteúdo imagens/*.txt
   Exemplo pode ser encontrados em https://github.com/github/gitignore
+  * O arquivo .gitignore também deve ser rastreado, pois evoluirá junto com o projeto.
 
 ## Após rastrear as mudanças é preciso comita-las:
 $ git commit -m 'Texto para o commit' -- A cada nova alteração é necessário rastrear e comitar o arquivo
+
+## Para rastrear e commitar
 
 ## Para verificar o histórico das alterações:
 $ git log
