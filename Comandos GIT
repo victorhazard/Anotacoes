@@ -73,5 +73,51 @@ $ git rm (nome arquivo)
 $ git mv nome_antigo nome_novo
 
 ## Desfazendo mudanças não desejadas
-$ git checkout nome_arquivo
--- Este comando faz com que as alterações realizadas em determinado arquivo sejam desfeitas (com a condição de que ainda não tenham sido rastreadas)
+$ git checkout -- nome_arquivo
+-- Este comando faz com que as alterações realizadas em determinado arquivo sejam desfeitas (com a condição de que ainda não tenham sido rastreadas - ainda não estão na área do stage)
+-- Caso exista mudanças que estejam na área do stage, elas não serão afetadas por este comando.
+-- É preciso que o arquivos tenha sido rastreado ao menos uma vez
+
+## Desfazendo mudanças não desejadas, mas que já foram rastreadas
+$ git reset -- nome_arquivo
+-- Este comando retirar as mudanças da área da stage, porém mantém as alterações efetuadas no arquivo (As mudanças ficam fora da stage)
+
+$ git reset
+-- O comando sem nenhum parâmetro retira todas as alterações de todos os arquivos da área de stage (As mudanças permanecem fora da stage)
+
+## Desfazendo mudanças não desejadas, mas que já foram rastreadas (Retirando da stage e eliminando as mudanças)
+$ git reset --hard
+-- O comando hard retira todos os arquivos da área de stage e desfaz todas as alterações realizadas neles. O repositório voltar a ficar como no último commit realizado
+
+## Desfazendo mudanças já commitadas
+$ git revert --no-edit (código commit)
+-- O comando revert desfaz as alterações realizadas no commit passado com parâmetro
+-- Se o comando --no-edit não for passada, será aberto um editor para definirmos uma mensagem para o novo commit
+
+
+## Repositórios Remotos
+
+
+
+
+
+
+
+## Listar Branchs
+$ git branch
+-- Branch é um linha independente de desenvolvimento
+-- Por padrão, o Git possui uma branch chamada master
+-- O sinal * (asterisco) indica qual brach está selecionada no momento
+-- Basicamento cada branch aponta para um commit
+
+## Listar Branchs com os commits associados
+$ git branch -v
+
+## Criar Branchs
+$ git branch (nome novo branch)
+
+## Alternar entre Branchs
+$ git checkout (nome do branch)
+
+## Criar e alternar Branchs em um único comando
+$ git checkout -b (nome novo branch)
