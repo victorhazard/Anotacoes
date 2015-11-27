@@ -39,7 +39,7 @@ $ git commit -am 'add e commit em um unico comando'
 $ git log
 
 ## Para visualizar um determinado número de commits:
-$ git lon -n X
+$ git log -n X
 
 ## Para visualizar os detalhes dos commits executados:
 $ git log --oneline
@@ -121,3 +121,24 @@ $ git checkout (nome do branch)
 
 ## Criar e alternar Branchs em um único comando
 $ git checkout -b (nome novo branch)
+
+## Deletar um branch (que não possuam commits pendentes)
+$ git branch -d (nome do branch)
+-- Não é possível remover um branch enquanto estiver nela. É necessário fazer checkout para outro branch (error: Cannot delete the branch 'Nome do Branch' which you are currently on.)
+-- O comando -d não deleta branchs que tenham commits que ainda não foram aplicados em outros branchs (error: The branch 'BranchTeste' is not fully merged. If you are sure you want to delete it, run 'git branch -D BranchTeste'.)
+
+## Deletar um branch (definitivamente)
+$ git branch -D (nome do branch)
+-- Os commits realizados nesse branch serão descartados
+
+## Visualizando mudanças não mescladas entre Branchs
+$ git branch --no-merged
+
+## Mesclando alterações de branchs diferentes
+$ git merge (nome do branch a ser mesclado) -m "texto commit"
+-- Quando efetuamos uma mesclagem o git cria um novo commit
+
+## Mesclando alterações e garantindo o commit
+-- existem situações queo git não realiza o commit, apena muda o apontamento do branch. Isso chama-se fast foward.
+-- para garantir que o seja efetuado o commit,, usar o --no-ff
+$ git merge --no-ff one -m "mesclando one"
